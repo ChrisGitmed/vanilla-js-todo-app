@@ -3,10 +3,12 @@ const $todoList = document.querySelector('ul');
 
 $form.addEventListener('submit', (event) => {
     event.preventDefault();
-    if ($form.todo.value) {
+    const todo = $form.todo.value;
+    if (todo) {
         const $listItem = document.createElement('li');
-        $listItem.textContent = $form.todo.value;
+        $listItem.textContent = todo;
         $todoList.appendChild($listItem);
+        $todoList.hidden = false;
     };
     $form.reset();
 });
