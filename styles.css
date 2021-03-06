@@ -1,8 +1,10 @@
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
+    font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
     color: #eee;
     background-color: #343A3E;
