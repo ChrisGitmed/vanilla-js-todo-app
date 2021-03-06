@@ -5,8 +5,16 @@ body {
 
 header {
     font-family: 'Source Sans Pro', sans-serif;
-    text-align: center;
     color: #eee;
     background-color: #343A3E;
     border: 1px solid #343A3E;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.justify-center {
+    justify-content: center;
 }
