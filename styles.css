@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-size: 12px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -17,4 +18,10 @@ header {
 
 .justify-center {
     justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        font-size: 1.4rem;
+    }
 }
