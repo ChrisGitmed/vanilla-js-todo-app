@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #eee;
+    background-color: #343A3E;
+    border: 1px solid #343A3E;
+}
+
+form {
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+form > input {
+    width: 65%;
+    padding: .25rem;
+}
+
+form > button {
+    padding: 0rem .5rem;
+}
+
+ul {
+    width: 70%;
+    list-style: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+li {
+    margin: 1rem 0rem;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+    body, input, button {
+        font-size: 1.4rem;
+    }
+}
