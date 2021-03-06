@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+}
+
 header {
     text-align: center;
+    color: #eee;
+    background-color: #343A3E;
+    border: 1px solid #343A3E;
 }
