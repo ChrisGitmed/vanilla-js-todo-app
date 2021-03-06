@@ -12,7 +12,16 @@ header {
 }
 
 form {
-    margin: 1rem 0rem;
+    margin: 2rem 0rem;
+}
+
+form > input {
+    width: 65%;
+    padding: .25rem;
+}
+
+form > button {
+    padding: 0rem .5rem;
 }
 
 .row {
