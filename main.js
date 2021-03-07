@@ -37,6 +37,9 @@ $form.addEventListener('submit', (event) => {
         data.todos.push({ todo , isCompleted: false })
         const $listItem = document.createElement('li');
         $listItem.textContent = todo;
+        const $button = document.createElement('button');
+        $button.className = 'delete-button';
+        $listItem.appendChild($button)
         $todoList.appendChild($listItem);
         $todoList.hidden = false;
     };
