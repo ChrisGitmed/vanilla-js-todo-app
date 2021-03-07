@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         $todoList.hidden = false;
         for (let i = 0; i < data.todos.length; i++) {
             const $listItem = document.createElement('li');
-            $listItem.textContent = data.todos[i];
+            $listItem.textContent = data.todos[i].todo;
+            if (data.todos[i].isCompleted) {
+                $listItem.className = 'green-text';
+            }
             $todoList.appendChild($listItem);
         }
     }
@@ -28,7 +31,7 @@ $form.addEventListener('submit', (event) => {
     event.preventDefault();
     const todo = $form.elements.todo.value;
     if (todo) {
-        data.todos.push(todo)
+        data.todos.push({ todo , isCompleted: false })
         const $listItem = document.createElement('li');
         $listItem.textContent = todo;
         $todoList.appendChild($listItem);
@@ -38,6 +41,21 @@ $form.addEventListener('submit', (event) => {
 });
 
 $todoList.addEventListener('click', (event) => {
+    const element = event.target;
+    if (element.tagName === 'LI') {
+        for (let i = 0; i < data.todos.length; i++) {
+            if (data.todos[i].todo === element.textContent) {
+                data.todos[i].isCompleted = !data.todos[i].isCompleted;
+                element.className === 'green-text'
+                    ? element.className = ''
+                    : element.className = 'green-text'
+                break;
+            }
+        }
+    }
+})
+
+$todoList.addEventListener('dblclick', (event) => {
     const element = event.target;
     if (element.tagName === 'LI') {
         for (let i = 0; i < data.todos.length; i++) {
