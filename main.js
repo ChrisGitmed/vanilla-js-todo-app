@@ -5,7 +5,7 @@ let data = {
 const $form = document.querySelector('form');
 const $todoList = document.querySelector('ul');
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     const todoList = localStorage.getItem('todos');
     if (todoList) {
         data = JSON.parse(todoList);
@@ -13,20 +13,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (data.todos.length) {
         $todoList.hidden = false;
         for (let i = 0; i < data.todos.length; i++) {
-            const $listItem = document.createElement('li');
-            $listItem.textContent = data.todos[i].todo;
-            if (data.todos[i].isCompleted) {
-                $listItem.className = 'green-text';
-            }
-            const $button = document.createElement('button');
-            $button.className = 'delete-button';
-            $listItem.appendChild($button)
-            $todoList.appendChild($listItem);
+            createListItemInDOM(data.todos[i]);
         }
     }
 })
 
-window.addEventListener('beforeunload', (event) => {
+window.addEventListener('beforeunload', () => {
     localStorage.setItem('todos', JSON.stringify(data))
 })
 
@@ -35,12 +27,7 @@ $form.addEventListener('submit', (event) => {
     const todo = $form.elements.todo.value;
     if (todo) {
         data.todos.push({ todo , isCompleted: false })
-        const $listItem = document.createElement('li');
-        $listItem.textContent = todo;
-        const $button = document.createElement('button');
-        $button.className = 'delete-button';
-        $listItem.appendChild($button)
-        $todoList.appendChild($listItem);
+        createListItemInDOM(data.todos[data.todos.length - 1]);
         $todoList.hidden = false;
     };
     $form.reset();
@@ -73,3 +60,15 @@ $todoList.addEventListener('click', (event) => {
         }
     }
 })
+
+const createListItemInDOM = (listItem) => {
+    const $listItem = document.createElement('li');
+    $listItem.textContent = listItem.todo;
+    if (listItem.isCompleted) {
+        $listItem.className = 'green-text';
+    }
+    const $button = document.createElement('button');
+    $button.className = 'delete-button';
+    $listItem.appendChild($button)
+    $todoList.appendChild($listItem);
+}
