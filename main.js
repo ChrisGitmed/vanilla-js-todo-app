@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (data.todos[i].isCompleted) {
                 $listItem.className = 'green-text';
             }
+            const $button = document.createElement('button');
+            $button.className = 'delete-button';
+            $listItem.appendChild($button)
             $todoList.appendChild($listItem);
         }
     }

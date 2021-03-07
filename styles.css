@@ -35,6 +35,9 @@ ul {
 
 li {
     margin: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 li:hover {
@@ -43,6 +46,17 @@ li:hover {
 
 .green-text {
     color: green;
+}
+
+.delete-button {
+    height: 1rem;
+    transition: 0.2s;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    background-color: firebrick;
+    transition: 0.2s;
 }
 
 .row {
