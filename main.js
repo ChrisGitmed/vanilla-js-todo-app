@@ -59,15 +59,12 @@ $todoList.addEventListener('click', (event) => {
             }
         }
     }
-})
-
-$todoList.addEventListener('dblclick', (event) => {
-    const element = event.target;
-    if (element.tagName === 'LI') {
+    else if (element.tagName === 'BUTTON') {
+        const $todo = element.closest('li');
         for (let i = 0; i < data.todos.length; i++) {
-            if (data.todos[i] === element.textContent) {
+            if (data.todos[i].todo === $todo.textContent) {
                 data.todos.splice(i, 1);
-                element.remove();
+                $todo.remove();
                 if ($todoList.children.length === 0) {
                     $todoList.hidden = true;
                 }
