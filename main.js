@@ -36,3 +36,19 @@ $form.addEventListener('submit', (event) => {
     };
     $form.reset();
 });
+
+$todoList.addEventListener('click', (event) => {
+    const element = event.target;
+    if (element.tagName === 'LI') {
+        for (let i = 0; i < data.todos.length; i++) {
+            if (data.todos[i] === element.textContent) {
+                data.todos.splice(i, 1);
+                element.remove();
+                if ($todoList.children.length === 0) {
+                    $todoList.hidden = true;
+                }
+                break;
+            }
+        }
+    }
+})

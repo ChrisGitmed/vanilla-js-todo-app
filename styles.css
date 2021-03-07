@@ -37,6 +37,9 @@ li {
     margin: 1rem 0rem;
 }
 
+.green-text {
+    color: green;
+}
 .row {
     display: flex;
     width: 100%;
